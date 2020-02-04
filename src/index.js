@@ -1,15 +1,11 @@
-const responseHelper = require('./helpers/response.helper');
-const logger         = require('./helpers/log.helper');
-const validator      = require('./helpers/validator.body.helper');
-
-const CustomError = require('./model/CustomError');
-
-const xRayConfig = require('./configs/xray.config');
+const core        = require('./core');
+const customError = require('./custom-error');
+const database    = require('./database');
+const response    = require('./response');
 
 module.exports = {
-  responseHelper,
-  logger,
-  validator,
-  xRayConfig,
-  CustomError
+  core,
+  customError,
+  database,
+  response
 };
