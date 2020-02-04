@@ -1,11 +1,17 @@
-const core        = require('./core');
-const customError = require('./custom-error');
-const database    = require('./database');
-const response    = require('./response');
+const customError         = require('./models/custom.error');
+const dbPgHelper          = require('./services/db.pg.access');
+const logHelper           = require('./helpers/log');
+const requestHelper       = require('./helpers/request');
+const responseHelper      = require('./helpers/response');
+const validateBodyHelper  =  require('./helpers/validator.body');
+const xray                =  require('./configs/xray');
 
 module.exports = {
-  core,
   customError,
-  database,
-  response
+  dbPgHelper,
+  logHelper,
+  requestHelper,
+  responseHelper,
+  validateBodyHelper,
+  xray
 };
