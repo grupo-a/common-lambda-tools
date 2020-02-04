@@ -1,6 +1,6 @@
 {
   "name": "common-lambda-tools",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Libs to support lambda development",
   "main": "./src/index.js",
   "repository": {
