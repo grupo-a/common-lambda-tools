@@ -1,5 +1,5 @@
-const dbPgAccess = require('./src/services/db.pg.access');
+const dbPgService = require('./src/services/dbPg.service');
 
 module.exports = {
-  dbPgAccess
+  dbPgService
 };

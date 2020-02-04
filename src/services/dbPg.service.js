@@ -1,7 +1,7 @@
 'use strict';
 //
 // dependecies
-const xray  = require('../configs/xray');
+const xray  = require('../configs/xray.config');
 const pg    = xray.loadPG();
 
 //

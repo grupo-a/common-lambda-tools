@@ -1,5 +1,5 @@
 const Validator   = require('jsonschema').Validator;
-const CustomError = require('../models/custom.error');
+const CustomError = require('../models/CustomError.model');
 
 const _buildResponseErrorMessage = (errors) =>{
   let responseMessage = '';
