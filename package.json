@@ -1,0 +1,29 @@
+{
+  "name": "common-lambda-tools",
+  "version": "0.1.0",
+  "description": "Libs to support lambda development",
+  "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grupo-a/common-lambda-tools.git"
+  },
+  "author": "GrupoA Edtech (https://www.grupoa.com.br)",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/grupo-a/common-lambda-tools/issues"
+  },
+  "homepage": "https://github.com/grupo-a/common-lambda-tools#readme",
+  "dependencies": {
+    "aws-xray-sdk": "^2.3.6",
+    "jsonschema": "^1.2.4",
+    "module-alias": "^2.2.2",
+    "pg": "^7.12.1",
+    "request": "^2.88.0"
+  },
+  "_moduleAliases": {
+    "common-lambda-tools/response": "src/response/index.js",
+    "common-lambda-tools/database": "src/database/index.js",
+    "common-lambda-tools/core": "src/core/index.js",
+    "common-lambda-tools/CustomError": "src/custom-error/index.js"
+  }
+}
