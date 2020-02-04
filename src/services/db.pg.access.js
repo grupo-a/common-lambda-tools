@@ -1,8 +1,8 @@
 'use strict';
 //
 // dependecies
-const core  = require('../components');
-const pg    = core.xrayHelper.loadPG();
+const xray  = require('../configs/xray');
+const pg    = xray.loadPG();
 
 //
 // const

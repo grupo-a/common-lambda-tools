@@ -1,4 +1,4 @@
-const dbPgHelper = require('./services/db.pg.access');
+const dbPgHelper = require('./src/services/db.pg.access');
 
 module.exports = {
   dbPgHelper
