@@ -4,7 +4,7 @@
 const xray  = require('../configs/xray.config');
 const pg    = xray.loadPG();
 
-class DbPgAccess {
+class DbPgService {
   constructor(DB_HOST, DB_DATABASE, DB_USER, DB_PASSWORD, DB_PORT) {
     this.poolDB = new pg.Pool({
       database                : DB_DATABASE,
@@ -36,5 +36,5 @@ class DbPgAccess {
 }
 
 module.exports = {
-  DbPgAccess
+  DbPgService
 };
