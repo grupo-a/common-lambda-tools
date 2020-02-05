@@ -27,11 +27,11 @@ const returnError = function (event, error) {
   return createResponse(body, statusCode, headers);
 }
 
-const returnSucess = function (body, statusCode = 200, headers = {}) {
-  return createResponse(body, statusCode, headers);
+const returnSuccess = function (customResponse) {
+  return createResponse(customResponse.body, customResponse.httpStatusCode, customResponse.headers);
 }
 
 module.exports = {
   returnError,
-  returnSucess
+  returnSuccess
 };
