@@ -13,7 +13,7 @@ const createResponse = (body, statusCode, headers) => {
   };
 };
 
-const returnError = function (event, error) {
+const error = function (event, error) {
   const body = {
     error: {
       code: error.businessStatusCode || '500_internal-error-server',
@@ -27,11 +27,11 @@ const returnError = function (event, error) {
   return createResponse(body, statusCode, headers);
 }
 
-const returnSuccess = function (customResponse) {
+const success = function (customResponse) {
   return createResponse(customResponse.body, customResponse.httpStatusCode, customResponse.headers);
 }
 
 module.exports = {
-  returnError,
-  returnSuccess
+  error,
+  success
 };
