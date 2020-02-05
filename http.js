@@ -1,5 +1,5 @@
-const requestHttp    = require('./http/request.http');
-const responseHttp   = require('./http/response.http');
+const requestHttp  = require('./src/http/request.http');
+const responseHttp = require('./src/http/response.http');
 
 module.exports = {
   requestHttp,

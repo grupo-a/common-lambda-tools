@@ -1,4 +1,4 @@
-const bodyValidator  =  require('./validator/body.validator');
+const bodyValidator = require('./src/validator/body.validator');
 
 module.exports = {
   bodyValidator

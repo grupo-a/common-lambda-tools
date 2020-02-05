@@ -1,8 +1,8 @@
 'use strict';
 //
 // dependecies
-const xray  = require('../configs/xray.config');
-const pg    = xray.loadPG();
+const xray = require('../configs/xray.config');
+const pg   = xray.loadPG();
 
 class DbPgService {
   constructor(DB_HOST, DB_DATABASE, DB_USER, DB_PASSWORD, DB_PORT, POOL_MAX = 1, POOL_MIN = 0, POOL_IDLE = 10000, POOL_TIMEOUT = 10000) {

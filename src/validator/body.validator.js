@@ -21,7 +21,7 @@ const _buildResponseErrorMessage = (errors) =>{
 
 const _validate = (schema, jsonObject) => {
   const validatorInstance = new Validator();
-  let validatorResult = validatorInstance.validate(jsonObject, schema);
+  let validatorResult     = validatorInstance.validate(jsonObject, schema);
 
   if (validatorResult.errors.length > 0) {
     _buildResponseErrorMessage(validatorResult.errors);
