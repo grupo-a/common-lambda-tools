@@ -17,20 +17,20 @@ class DbPgService {
       idleTimeoutMillis       : POOL_IDLE,
       connectionTimeoutMillis : POOL_TIMEOUT
     });
-  }
+  };
 
-  closeConnection = (connection) => {
+  closeConnection (connection) {
     connection.release(true);
   };
 
-  executeQuery = (query, params = [], connection) => {
+  executeQuery (query, params = [], connection) {
     return connection.query(query, params)
     .then(result => {
       return result.rows;
     });
   };
 
-  openConnection = async () => {
+  async openConnection () {
     return await this.poolDB.connect();
   };
 }
