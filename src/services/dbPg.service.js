@@ -15,23 +15,26 @@ class DbPgService {
       max                     : POOL_MAX,
       min                     : POOL_MIN,
       idleTimeoutMillis       : POOL_IDLE,
-      connectionTimeoutMillis : POOL_TIMEOUT
+      connectionTimeoutMillis : POOL_TIMEOUT,
+      connection              : null
     });
   };
 
-  closeConnection (connection) {
-    connection.release(true);
+  closeConnection () {
+    if (this.poolDB.connection) {
+      this.poolDB.connection.release(true);
+    }
   };
 
-  executeQuery (query, params = [], connection) {
-    return connection.query(query, params)
+  executeQuery (query, params = []) {
+    return this.poolDB.connection.query(query, params)
     .then(result => {
       return result.rows;
     });
   };
 
   async openConnection () {
-    return await this.poolDB.connect();
+    this.poolDB.connection = await this.poolDB.connect();
   };
 }
 
