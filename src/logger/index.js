@@ -17,8 +17,13 @@ const warn = function (functionName, message) {
     console.warn(`${functionName} - ${message}`);
 }
 
+const audit = function (uuid, action, payload) {
+    console.info(`${Date.now()} - ${uuid} - ${action} - ${payload}`);
+}
+
 module.exports = {
   error,
   info,
-  warn
+  warn,
+  audit
 };
