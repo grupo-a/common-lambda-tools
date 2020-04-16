@@ -1,4 +1,5 @@
 'use strict';
+
 //
 // dependecies
 const xray = require('../configs/xray.config');
@@ -28,13 +29,31 @@ class DbPgService {
 
   executeQuery (query, params = []) {
     return this.poolDB.connection.query(query, params)
-    .then(result => {
-      return result.rows;
-    });
+      .then(result => {
+        return result.rows;
+      });
   };
 
   async openConnection () {
     this.poolDB.connection = await this.poolDB.connect();
+  };
+
+  async startTransaction() {
+    if (this.poolDB.connection) {
+      await this.poolDB.connection.query('BEGIN');
+    }
+  };
+
+  async commit() {
+    if (this.poolDB.connection) {
+      await this.poolDB.connection.query('COMMIT');
+    }
+  };
+
+  async rollback() {
+    if (this.poolDB.connection) {
+      await this.poolDB.connection.query('ROLLBACK');
+    }
   };
 }
 
