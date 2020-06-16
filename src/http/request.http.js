@@ -15,6 +15,9 @@ const requestHandler = (options) => {
       }
 
       if (result.body) {
+        if(result.headers['content-type'] == 'application/xml' || result.headers['content-type'] == 'text/xml' || result.headers['content-type'] == 'application/octet-stream'){
+          return resolve(result.body);
+        }
         return resolve(JSON.parse(result.body));
       }
 
