@@ -15,6 +15,8 @@ const requestHandler = (options) => {
       }
 
       if (result.body) {
+        console.log(result);
+        console.log(result.headers);
         if(result.body[0] == '<'){
           return resolve(result.body);
         }
