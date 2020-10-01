@@ -17,7 +17,7 @@ const requestHandler = (options) => {
       if (result.body) {
         console.log(result);
         console.log(result.headers);
-        const body;
+        let body;
         try{
           body = JSON.parse(result.body);
         }
