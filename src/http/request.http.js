@@ -17,10 +17,14 @@ const requestHandler = (options) => {
       if (result.body) {
         console.log(result);
         console.log(result.headers);
-        if(result.body[0] == '<'){
-          return resolve(result.body);
+        const body;
+        try{
+          body = JSON.parse(result.body);
         }
-        return resolve(JSON.parse(result.body));
+        catch {
+          body = result.body;
+        }
+        return resolve(body);
       }
 
       return resolve();
