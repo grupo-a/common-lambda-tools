@@ -10,13 +10,14 @@ const requestHandler = (options) => {
       if (result.statusCode >= 300) {
         let data;
         try{
-          data = JSON.parse(result.body);
+          data                = JSON.parse(result.body);
+          data.status_code    = result.statusCode;
+          data.status_message = result.statusMessage;
         }
         catch {
-          data.body = result.body;
+          data = result;
         }
-        data.status_code    = result.statusCode;
-        data.status_message = result.statusMessage;
+        
         return reject(data);
       }
 
