@@ -8,7 +8,13 @@ const requestHandler = (options) => {
       }
 
       if (result.statusCode >= 300) {
-        const data          = JSON.parse(result.body);
+        let data;
+        try{
+          data = JSON.parse(result.body);
+        }
+        catch {
+          data.body = result.body;
+        }
         data.status_code    = result.statusCode;
         data.status_message = result.statusMessage;
         return reject(data);
