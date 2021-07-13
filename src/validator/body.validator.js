@@ -3,6 +3,7 @@ const CustomError = require('../models/CustomError.model');
 
 const _buildResponseErrorMessage = (errors) =>{
   let responseMessage = '';
+  console.log(errors);
   for (let i = 0; i < errors.length; i++) {
     const error = errors[i];
     
