@@ -6,6 +6,8 @@ const _buildResponseErrorMessage = (errors) =>{
   for (let i = 0; i < errors.length; i++) {
     const error = errors[i];
     
+    console.log(`Error: ${JSON.stringfy(error)}`);
+    
     if(error.property == 'instance'){
       responseMessage += error.message.replace(/"/g,'');
     }else{
