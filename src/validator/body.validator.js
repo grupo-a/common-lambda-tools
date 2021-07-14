@@ -17,6 +17,7 @@ const _buildResponseErrorMessage = (errors) =>{
       responseMessage += ' || ';
     }
   }
+  console.log(responseMessage);
   throw new CustomError(responseMessage, 400, '400_bad-request-body');
 };
 
