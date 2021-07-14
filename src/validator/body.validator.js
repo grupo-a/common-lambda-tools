@@ -3,7 +3,6 @@ const CustomError = require('../models/CustomError.model');
 
 const _buildResponseErrorMessage = (errors) =>{
   let responseMessage = '';
-  console.log(errors);
   for (let i = 0; i < errors.length; i++) {
     const error = errors[i];
     
@@ -17,7 +16,6 @@ const _buildResponseErrorMessage = (errors) =>{
       responseMessage += ' || ';
     }
   }
-  console.log(responseMessage);
   throw new CustomError(responseMessage, 400, '400_bad-request-body');
 };
 
