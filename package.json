@@ -17,7 +17,7 @@
     "aws-xray-sdk": "^2.3.6",
     "jsonschema": "^1.2.4",
     "module-alias": "^2.2.2",
-    "pg": "^7.12.1",
+    "pg": "^8.7.1",
     "request": "^2.88.0"
   },
   "_moduleAliases": {
