@@ -22,8 +22,6 @@ const requestHandler = (options) => {
       }
 
       if (result.body) {
-        console.log(result);
-        console.log(result.headers);
         let body;
         try{
           body = JSON.parse(result.body);
