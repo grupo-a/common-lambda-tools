@@ -5,7 +5,6 @@ const createResponse = (body, statusCode, headers) => {
     'Cache-Control'                   : 'private, max-age=0, no-cache, no-store, must-revalidate',
     'Content-Type'                    : 'application/json; charset=utf-8',
     'Strict-Transport-Security'       : 'max-age=63072000; includeSubDomains',
-    'Content-Security-Policy'         : 'default-src self;base-uri self;font-src ',
     'X-Content-Type-Options'          : 'nosniff',
     'Referrer-Policy'                 : 'no-referrer',
     'Permissions-Policy'              : 'geolocation=(), interest-cohort=()',
