@@ -6,7 +6,7 @@ const xray = require('../configs/xray.config');
 const pg   = xray.loadPG();
 
 class DbPgService {
-  constructor(DB_HOST, DB_DATABASE, DB_USER, DB_PASSWORD, DB_PORT, POOL_MAX = 1, POOL_MIN = 0, POOL_IDLE = 10000, POOL_TIMEOUT = 10000) {
+  constructor(DB_HOST, DB_DATABASE, DB_USER, DB_PASSWORD, DB_PORT, POOL_MAX = 1, POOL_MIN = 0, POOL_IDLE = 10000, POOL_TIMEOUT = 10000, ssl = false) {
     this.poolDB = new pg.Pool({
       database                : DB_DATABASE,
       user                    : DB_USER,
@@ -17,7 +17,8 @@ class DbPgService {
       min                     : POOL_MIN,
       idleTimeoutMillis       : POOL_IDLE,
       connectionTimeoutMillis : POOL_TIMEOUT,
-      connection              : null
+      connection              : null,
+      ssl
     });
   };
 
