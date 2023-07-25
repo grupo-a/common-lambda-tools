@@ -1,43 +1,45 @@
-const request = require('request');
+'use strict';
 
-const requestHandler = (options) => {
-  return new Promise((resolve, reject) => {
-    request(options, (err, result) => {
-      if (err) {
-        return reject(err);
-      }
+//
+// dependencies
+const axios = require('axios');
 
-      if (result.statusCode >= 300) {
-        let data;
-        try{
-          data                = JSON.parse(result.body);
-          data.status_code    = result.statusCode;
-          data.status_message = result.statusMessage;
-        }
-        catch {
-          data = result;
-        }
-        
-        return reject(data);
-      }
+const AXIOS_TIMEOUT = 30_000;
 
-      if (result.body) {
-        console.log(result);
-        console.log(result.headers);
-        let body;
-        try{
-          body = JSON.parse(result.body);
-        }
-        catch {
-          body = result.body;
-        }
-        return resolve(body);
-      }
+/**
+ * @template D
+ * @param options {import('axios').AxiosRequestConfig<D>} - Axios options
+ * @returns {Promise<unknown>}
+ */
+const requestHandler = async (options) => {
+  if (options.uri) {
+    options.url = options.uri;
+    delete options.uri;
+  }
 
-      return resolve();
+  try {
+    const response = await axios({
+      timeout: AXIOS_TIMEOUT,
+      ...options
     });
-  });
 
+    return response.data;
+  } catch (err) {
+    if (!err.response) {
+      throw err;
+    }
+
+    if (!err.response.headers['content-type'].startsWith('application/json')) {
+      throw err?.response?.data ?? null; // for backwards compatibility
+    }
+
+    throw {
+      ...err.response.data,
+      status: err.response.status,
+      status_code: err.response.status,
+      status_message: err.response.statusText
+    };
+  }
 };
 
 module.exports = {
