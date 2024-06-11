@@ -1,10 +1,5 @@
 'use strict';
 
-//
-// dependecies
-const xray = require('../configs/xray.config');
-const pg   = xray.loadPG();
-
 const noopIdentityCheck = () => {};
 
 class DbPgService {
