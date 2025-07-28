@@ -1,5 +1,7 @@
 'use strict';
 
+const pg = require('pg');
+
 const noopIdentityCheck = () => {};
 
 class DbPgService {
