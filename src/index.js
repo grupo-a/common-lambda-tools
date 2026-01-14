@@ -5,7 +5,6 @@ const dbPgService    = require('./services/dbPg.service');
 const logger         = require('./logger');
 const requestHttp    = require('./http/request.http');
 const responseHttp   = require('./http/response.http');
-const xrayConfig     = require('./configs/xray.config');
 
 module.exports = {
   bodyValidator,
@@ -15,5 +14,4 @@ module.exports = {
   logger,
   requestHttp,
   responseHttp,
-  xrayConfig
 };
